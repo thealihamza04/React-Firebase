@@ -27,7 +27,7 @@ export default function AllTodos({ className }) {
     return (
         <Tabs
             defaultValue='pending'
-            className='w-full'
+            className={cn("w-full", className)}
         >
             <TabsList>
                 <TabsTrigger value='pending'>Pending</TabsTrigger>

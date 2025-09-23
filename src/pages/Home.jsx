@@ -16,13 +16,13 @@ const Home = () => {
             )}
         >
             <Heading
-                size='xl'
+                size='sm'
                 className='text-center'
             >
                 Todos with React ⚡ Supabase
             </Heading>
 
-            <AllTodos className='mt-8 sm:mt-12' />
+            <AllTodos className='mt-8' />
 
             <CreateTodo />
         </div>
