@@ -22,7 +22,7 @@ export const _removeTdoItem = async (itemId) => {
 
 export const _updateTodoItem = async (formData) => {
     if (!formData) throw new Error("formData is missing");
-    const { data, error } = await supabase.from("todos").update({ title: formData.title, done: formData.done }).eq("id", formData.id);
+    const { data, error } = await supabase.from("todos").update({ title: formData.title, description: formData.description, done: formData.done }).eq("id", formData.id).select().single();
     if (error) throw error;
     return data;
 }

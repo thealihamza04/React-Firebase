@@ -64,7 +64,30 @@ const useTodoStore = create((set, get) => ({
         } finally {
             set({ loading: { ...get().loading, updateStatus: false } });
         }
+    },
+
+    updateTodoItem: async (formData) => {
+        if (!formData) throw new Error("formData is missing");
+        set({ loading: { ...get().loading, update: true }, error: null });
+        try {
+            const updatedTodo = await todo_api._updateTodoItem(formData);
+            set((state) => ({
+                todoItems: state.todoItems.map((todo) =>
+                    todo.id === updatedTodo.id ? { ...todo, ...updatedTodo } : todo
+                ),
+            }));
+            return updatedTodo;
+        } catch (error) {
+            set({ error });
+            throw error;
+        } finally {
+            set({ loading: { ...get().loading, update: false } });
+        }
     }
+
+
+
+
 
 
 }));

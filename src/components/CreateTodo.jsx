@@ -35,7 +35,7 @@ const CreateTodo = () => {
                     onOpenChange={setIsDialogOpen}
                 >
                     <DialogTrigger asChild>
-                        <Button className={"fixed bottom-8 right-24"}>
+                        <Button className={"fixed bottom-8 right-12"}>
                             Add
                         </Button>
                     </DialogTrigger>

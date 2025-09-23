@@ -8,19 +8,22 @@ const Home = () => {
     return (
         <div
             className={cn(
-                "bg-[var(--color-background)]",
-                " min-h-screen ",
-                "px-24 py-18"
+                "bg-[var(--color-background)] min-h-screen",
+                "px-4 py-6", // default for small devices
+                "sm:px-8 sm:py-10", // small screens and up
+                "md:px-16 md:py-14", // medium screens
+                "lg:px-24 lg:py-18" // large screens
             )}
         >
             <Heading
                 size='xl'
                 className='text-center'
             >
-                {" "}
-                Connecting React with supabse✨{" "}
+                Connecting React with supabase✨
             </Heading>
-            <AllTodos className={"mt-12"} />
+
+            <AllTodos className='mt-8 sm:mt-12' />
+
             <CreateTodo />
         </div>
     );
