@@ -45,11 +45,11 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
     };
 
     return (
-        <div className='flex relative flex-col justify-start w-full items-start bg-[var(--color-card)] rounded-[var(--radius-lg)] p-4'>
+        <div className='flex relative flex-col justify-start w-full items-start bg-[var(--color-secondary)] rounded-[var(--radius-lg)] p-4'>
             <div className='gap-3 flex items-center'>
                 <label className='font-semibold text-lg'>{title}</label>
             </div>
-            <div className='ml-2 mt-2 p-2 w-[98%] px-4 rounded-md bg-[var(--color-muted)] text-[var(--color-muted-foreground)] text-sm'>
+            <div className='ml-2 mt-2 p-2 w-[98%] px-4 rounded-[var(--radius)] bg-sidebar text-sidebar-foreground border text-sm'>
                 {description ? (
                     <p>{description}</p>
                 ) : (
@@ -68,6 +68,7 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                         />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align='end'>
+                        {/* Update Status */}
                         <DropdownMenuItem
                             onClick={handleUpdateStatus}
                             onSelect={(e) => e.preventDefault()}
@@ -85,6 +86,7 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                                 : "Mark as completed"}
                         </DropdownMenuItem>
 
+                        {/* Update */}
                         <DropdownMenuItem
                             onClick={() => setIsUpdateModalOpen(true)}
                         >
@@ -92,17 +94,19 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                             Update
                         </DropdownMenuItem>
 
+                        {/* Delete (destructive) */}
                         <DropdownMenuItem
+                            className='text-destructive focus:text-destructive'
                             onClick={handleDelete}
                             onSelect={(e) => e.preventDefault()}
                         >
                             {isDeleting ? (
                                 <Loader
-                                    className='text-[var(--color-muted-foreground)] animate-spin'
+                                    className='text-destructive animate-spin'
                                     size={15}
                                 />
                             ) : (
-                                <Trash />
+                                <Trash className='text-destructive' />
                             )}
                             Delete
                         </DropdownMenuItem>

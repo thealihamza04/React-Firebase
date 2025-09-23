@@ -3,6 +3,8 @@ import useTodoStore from "@/store/todo_store";
 import TodoItem from "./TodoItem";
 import { cn } from "@/utils/cn.js";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import EmptyTodos from "./EmptyTodos";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text.tsx";
 
 export default function AllTodos({ className }) {
     const { todoItems, getTodos, loading, error } = useTodoStore();
@@ -14,7 +16,7 @@ export default function AllTodos({ className }) {
     if (loading.fetch)
         return (
             <div className='h-[400px] flex items-center justify-center'>
-                <p>Loading todos...</p>
+                <AnimatedShinyText>Loading your tasks</AnimatedShinyText>
             </div>
         );
     if (error) return <p>Error: {error.message}</p>;
@@ -51,10 +53,10 @@ export default function AllTodos({ className }) {
                                 isDone={todo.done}
                             />
                         ))
+                    ) : todoItems.length > 0 ? (
+                        <EmptyTodos type='noPending' />
                     ) : (
-                        <li className='text-muted-foreground'>
-                            No pending todos 🎉
-                        </li>
+                        <EmptyTodos type='noTodos' />
                     )}
                 </ul>
             </TabsContent>
@@ -79,9 +81,7 @@ export default function AllTodos({ className }) {
                             />
                         ))
                     ) : (
-                        <li className='text-muted-foreground'>
-                            No completed todos yet ✅
-                        </li>
+                        <EmptyTodos type={"noCompleted"} />
                     )}
                 </ul>
             </TabsContent>

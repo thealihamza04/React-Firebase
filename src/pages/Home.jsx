@@ -19,7 +19,7 @@ const Home = () => {
                 size='xl'
                 className='text-center'
             >
-                Connecting React with supabase✨
+                Todos with React ⚡ Supabase
             </Heading>
 
             <AllTodos className='mt-8 sm:mt-12' />

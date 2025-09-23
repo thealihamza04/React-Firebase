@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useTodoStore from "@/store/todo_store";
+import { Loader } from "lucide-react";
 
 export default function TodoUpdateModal({ open, onClose, todo }) {
     const { updateTodoItem, loading } = useTodoStore();
@@ -64,7 +65,13 @@ export default function TodoUpdateModal({ open, onClose, todo }) {
                         disabled={loading.update}
                         className='float-end'
                     >
-                        {loading.update ? "Updating..." : "Update"}
+                        {loading.update && (
+                            <Loader
+                                size={15}
+                                className='animate-spin'
+                            />
+                        )}
+                        Update
                     </Button>
                 </form>
             </DialogContent>

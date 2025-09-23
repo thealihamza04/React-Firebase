@@ -5,7 +5,6 @@ import { Textarea } from "@/components/ui/textarea.tsx";
 import { cn } from "@/utils/cn.js";
 import useTodoStore from "@/store/todo_store.js";
 import { useState } from "react";
-
 import {
     Dialog,
     DialogContent,
@@ -14,19 +13,17 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { Loader } from "lucide-react";
 
 const CreateTodo = () => {
-    const { register, handleSubmit } = useForm();
-    const { addTodo, loading, reset } = useTodoStore();
-    const [isDialogOpen, setIsDialogOpen] = useState(0);
-
+    const { register, handleSubmit, reset } = useForm();
+    const { addTodo, loading } = useTodoStore();
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
     const onSubmit = async (data) => {
         await addTodo(data);
         setIsDialogOpen(false);
         reset();
-        console.log("Todo title:", data);
     };
-
     return (
         <div>
             <div className={cn("flex flex-row", "gap-2")}>
@@ -51,7 +48,6 @@ const CreateTodo = () => {
                                                 {...register("title", {
                                                     required: true,
                                                 })}
-                                                className='rounded-r-0'
                                             />
                                             <Textarea
                                                 placeholder={"Enter details"}
@@ -62,9 +58,13 @@ const CreateTodo = () => {
                                                 type={"submit"}
                                                 className={"float-end"}
                                             >
-                                                {loading.add
-                                                    ? "Add ..."
-                                                    : "Add"}
+                                                Add
+                                                {loading.add && (
+                                                    <Loader
+                                                        size={15}
+                                                        className='animate-spin'
+                                                    />
+                                                )}
                                             </Button>
                                         </div>
                                     </fieldset>
@@ -77,5 +77,4 @@ const CreateTodo = () => {
         </div>
     );
 };
-
 export default CreateTodo;
