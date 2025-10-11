@@ -13,7 +13,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import useTodoStore from "@/store/todo_store.js";
-import { formatDate } from "../utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 import TodoUpdateModal from "./TodoUpdateModal";
 
 const TodoItem = ({ id, title, description, createdAt, isDone }) => {

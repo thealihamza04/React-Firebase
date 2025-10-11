@@ -1,8 +1,8 @@
 import React from "react";
 import { cn } from "@/utils/cn.js";
 import Heading from "@/components/ui/Heading";
-import CreateTodo from "../components/CreateTodo";
-import AllTodos from "../components/AllTodos";
+import CreateTodo from "../components/todo/CreateTodo";
+import AllTodos from "../components/todo/AllTodos";
 
 const Home = () => {
     return (
@@ -21,9 +21,7 @@ const Home = () => {
             >
                 Todos with React ⚡ Supabase
             </Heading>
-
             <AllTodos className='mt-8' />
-
             <CreateTodo />
         </div>
     );
