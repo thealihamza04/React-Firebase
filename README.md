@@ -1,5 +1,3 @@
-    
-
 # React-Supabase
 
 A modern **React + Supabase** CRUD scaffolded with **Vite**, styled using **Tailwind CSS**, and powered by **ShadCN UI**, **Lucide Icons**, and **Zustand** for state management.
@@ -10,33 +8,46 @@ It comes with a clean, professional folder structure for scalability.
 ## 📂 Project Structure
 
 ```
-React-supabase/
-├─ public/              
-│  ├─ assets/           # App-specific assets (logos, svgs)
+├─ public/
 ├─ src/
-│  ├─ api/              # API service layer (Supabase queries)
-│  │  └─ service/todo_api.js
-│  ├─ components/       # UI + Feature components
-│  │  ├─ ui/            # ShadCN-based UI primitives
-│  ├─ hooks/            # Custom hooks
-│  ├─ lib/              # Helper utilities
-│  ├─ pages/            # Page-level components (Home.jsx)
-│  ├─ store/            # Zustand store
-│  ├─ utils/            # Utility functions
-│  ├─ App.jsx           # Root app
-│  ├─ main.jsx          # Entry file
-│  └─ supabaseClient.js # Supabase client instance
+│  ├─ api/
+│  ├─ assets/
+│  ├─ components/
+│  │  ├─ chat/
+│  │  ├─ header/
+│  │  ├─ todo/
+│  │  └─ ui/
+│  ├─ hooks/
+│  ├─ lib/
+│  ├─ pages/
+│  ├─ store/
+│  ├─ utils/
+│  ├─ App.jsx
+│  ├─ index.css
+│  └─ main.jsx
+├─ .gitignore
+├─ components.json
+├─ eslint.config.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ README.md
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+└─ vite.config.js
 ```
 
 ---
 
 ## ⚡ Features
 
-* 🔥 Full CRUD functionality with Supabase backend
-* 🎨 UI built with TailwindCSS + ShadCN components
-* 🌓 Dark mode support via custom hook (`useDarkMode`)
-* 🗂 Organized, scalable folder structure
-* ✔ Zustand for state management
+-   🔥 Full CRUD functionality with Supabase backend
+-   🎨 UI built with TailwindCSS + ShadCN components
+-   🌓 Dark mode support via custom hook (`useDarkMode`)
+-   🗂 Organized, scalable folder structure
+-   ✔ Zustand for state management
+-   💬 Realtime chat functionality with Supabase
 
 ---
 
@@ -69,20 +80,23 @@ Visit [http://localhost:5173](http://localhost:5173)
 
 ---
 
+## 💬 Realtime Chat
+
+The application now includes a realtime chat feature, powered by Supabase's realtime capabilities. Users can send and receive messages in real time. The chat component is located in `src/components/chat/`.
+
+---
+
 ## 🛠 Tech Stack
 
-* **React 18 + Vite**
-* **Supabase** (Database + Backend)
-* **Zustand** (State Management)
-* **TailwindCSS**
-* **ShadCN UI Components**
-* **Lucide React Icons**
+-   **React 18 + Vite**
+-   **Supabase** (Database + Backend)
+-   **Zustand** (State Management)
+-   **TailwindCSS**
+-   **ShadCN UI Components**
+-   **Lucide React Icons**
 
 ---
 
 ## 🌐 Live Demo
 
 [React-SB Todos on Vercel](https://react-sb-todos.vercel.app/)
-
-
-
