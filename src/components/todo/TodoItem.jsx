@@ -110,8 +110,8 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
             <Dialog open={isConfirmOpen} onOpenChange={setIsConfirmOpen}>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle>Delete this todo?</DialogTitle>
-                        <DialogDescription>
+                        <DialogTitle className="text-left">Delete this todo?</DialogTitle>
+                        <DialogDescription className="text-left">
                             This action cannot be undone. This will permanently delete
                             the todo "{title}".
                         </DialogDescription>
