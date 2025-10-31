@@ -53,13 +53,13 @@ export default function MessageList({ messages, className, username }) {
 
             {/* Bottom Shadow Overlay */}
             <div
-                className="pointer-events-none absolute bottom-12 left-0 w-[99%] h-16
+                className="pointer-events-none absolute bottom-12 left-0 w-[98%] md:w-[99%] h-16
                  bg-gradient-to-t from-background via-background/85 to-transparent" // CHANGE: Use color variables
             />
 
             {/* Top Shadow Overlay */}
             <div
-                className="pointer-events-none absolute top-0 left-0 w-[99%] h-16
+                className="pointer-events-none absolute top-0 left-0 w-[98%] md:w-[99%] h-16
                  bg-gradient-to-b from-background via-background/80 to-transparent" // CHANGE: Use color variables
                 style={{ maskImage: 'linear-gradient(to bottom, black 60%, transparent)' }}
             />

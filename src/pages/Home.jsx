@@ -3,8 +3,8 @@ import { cn } from "@/utils/cn.js";
 import Heading from "@/components/ui/Heading";
 import CreateTodo from "../components/todo/CreateTodo";
 import AllTodos from "../components/todo/AllTodos";
-import { Firebase } from "@/components/icons/firebase.jsx"
-import { ReactIcon } from "@/components/icons/react.jsx"
+import { Firebase } from "@/components/ui/icons/firebase.jsx"
+import { ReactIcon } from "@/components/ui/icons/react.jsx"
 
 
 const Home = () => {

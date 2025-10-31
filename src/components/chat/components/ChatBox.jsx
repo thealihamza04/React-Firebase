@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card'
 import MessageList from './MessageList'
 import MessageInput from './MessageInput'
-import { Loader } from '@/components/animate-ui/icons/loader.tsx'
+import { Loader } from '@/components/ui/animate-ui/icons/loader.tsx'
 
 export default function ChatBox({ messages, onSend, loading, sending, username }) {
     const isEmpty = !loading && messages.length === 0
@@ -33,3 +33,4 @@ export default function ChatBox({ messages, onSend, loading, sending, username }
         </Card>
     )
 }
+

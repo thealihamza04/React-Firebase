@@ -4,7 +4,8 @@ import TodoItem from "./TodoItem";
 import { cn } from "@/utils/cn.js";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import EmptyTodos from "./EmptyTodos";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text.tsx";
+import { Shimmer } from "@/components/ui/ai-elements/shimmer.tsx"
+
 
 export default function AllTodos({ className }) {
     const { todoItems, getTodos, loading, error } = useTodoStore();
@@ -16,7 +17,7 @@ export default function AllTodos({ className }) {
     if (loading.fetch)
         return (
             <div className='h-[400px] flex items-center justify-center'>
-                <AnimatedShinyText>Loading your tasks</AnimatedShinyText>
+                <Shimmer>Loading Your Tasks</Shimmer>
             </div>
         );
     if (error) return <p>Error: {error.message}</p>;
@@ -88,3 +89,4 @@ export default function AllTodos({ className }) {
         </Tabs>
     );
 }
+

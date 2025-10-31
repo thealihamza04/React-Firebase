@@ -52,12 +52,16 @@ export const _removeTdoItem = async (itemId) => {
 export const _updateTodoItem = async (formData) => {
     if (!formData?.id) throw new Error("formData is missing");
     const { id, title, description, done } = formData;
-    await updateDoc(doc(db, "todos", id), {
-        title,
-        description,
-        done,
-    });
-    return { id, title, description, done };
+
+    // Only include fields that are explicitly provided to avoid
+    // sending undefined values (Firestore rejects undefined fields).
+    const payload = {};
+    if (typeof title !== "undefined") payload.title = title;
+    if (typeof description !== "undefined") payload.description = description;
+    if (typeof done !== "undefined") payload.done = done;
+
+    await updateDoc(doc(db, "todos", id), payload);
+    return { id, ...payload };
 };
 
 export const _changeTodoItemStatus = async (itemId, status) => {

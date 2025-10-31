@@ -3,9 +3,9 @@ import { ListTodo, MessagesSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { AnimateIcon } from "@/components/animate-ui/icons/icon.tsx"
-import { MessageSquareText } from "@/components/animate-ui/icons/message-square-text.tsx"
-import { List } from "@/components/animate-ui/icons/list.tsx"
+import { AnimateIcon } from "@/components/ui/animate-ui/icons/icon.tsx"
+import { MessageSquareText } from "@/components/ui/animate-ui/icons/message-square-text.tsx"
+import { List } from "@/components/ui/animate-ui/icons/list.tsx"
 
 const Header = () => {
 
@@ -32,3 +32,4 @@ const Header = () => {
 }
 
 export default Header;
+

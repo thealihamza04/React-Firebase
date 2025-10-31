@@ -20,3 +20,4 @@ const Firebase = (props) => (
 );
 
 export { Firebase };
+

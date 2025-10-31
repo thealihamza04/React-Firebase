@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { EllipsisVertical, Trash, CircleCheck, PenLine } from "lucide-react";
-import { Loader } from "@/components/animate-ui/icons/loader.tsx";
+import { Loader } from "@/components/ui/animate-ui/icons/loader.tsx";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -114,3 +114,4 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
 };
 
 export default TodoItem;
+

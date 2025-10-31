@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useTodoStore from "@/store/todo_store";
-import { Loader } from "@/components/animate-ui/icons/loader.tsx";
+import { Loader } from "@/components/ui/animate-ui/icons/loader.tsx";
 
 export default function TodoUpdateModal({ open, onClose, todo }) {
     const { updateTodoItem, loading } = useTodoStore();
@@ -73,3 +73,4 @@ export default function TodoUpdateModal({ open, onClose, todo }) {
         </Dialog>
     );
 }
+

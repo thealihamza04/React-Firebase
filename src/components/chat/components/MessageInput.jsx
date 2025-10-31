@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button'
 // import Loader from '@/components/ui/loader'
 import { cn } from '@/utils/cn'
 import { ArrowUpRight } from "lucide-react"
-import { AnimateIcon } from "@/components/animate-ui/icons/icon.tsx"
-import { Send } from "@/components/animate-ui/icons/send.tsx"
-import { Loader } from "@/components/animate-ui/icons/loader.tsx"
+import { AnimateIcon } from "@/components/ui/animate-ui/icons/icon.tsx"
+import { Send } from "@/components/ui/animate-ui/icons/send.tsx"
+import { Loader } from "@/components/ui/animate-ui/icons/loader.tsx"
 
 
 export default function MessageInput({ onSend, sending, className }) {
@@ -43,3 +43,4 @@ export default function MessageInput({ onSend, sending, className }) {
         </div>
     )
 }
+

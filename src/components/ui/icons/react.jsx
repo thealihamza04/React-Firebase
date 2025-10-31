@@ -15,3 +15,4 @@ const ReactIcon = (props) => (
 );
 
 export { ReactIcon };
+

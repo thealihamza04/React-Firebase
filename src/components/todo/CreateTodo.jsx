@@ -13,9 +13,9 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { Loader } from "@/components/animate-ui/icons/loader.tsx";
-import { PlusIcon } from "@/components/animate-ui/icons/plus.tsx"
-import { AnimateIcon } from "@/components/animate-ui/icons/icon.tsx"
+import { Loader } from "@/components/ui/animate-ui/icons/loader.tsx";
+import { PlusIcon } from "@/components/ui/animate-ui/icons/plus.tsx"
+import { AnimateIcon } from "@/components/ui/animate-ui/icons/icon.tsx"
 
 const CreateTodo = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -35,8 +35,8 @@ const CreateTodo = () => {
                 >
                     <DialogTrigger asChild>
                         <AnimateIcon animateOnHover>
-                            <Button className={"fixed bottom-8 right-12"}>
-                                <PlusIcon />
+                            <Button className={"fixed bottom-8 right-12"}  >
+                                <PlusIcon className="size-5" />
                             </Button>
                         </AnimateIcon>
                     </DialogTrigger>
@@ -71,9 +71,10 @@ const CreateTodo = () => {
                             </DialogDescription>
                         </DialogHeader>
                     </DialogContent>
-                </Dialog>
-            </div>
-        </div>
+                </Dialog >
+            </div >
+        </div >
     );
 };
 export default CreateTodo;
+
