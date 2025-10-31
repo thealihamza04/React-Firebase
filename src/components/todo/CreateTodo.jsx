@@ -13,7 +13,9 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { Loader } from "lucide-react";
+import { Loader } from "@/components/animate-ui/icons/loader.tsx";
+import { PlusIcon } from "@/components/animate-ui/icons/plus.tsx"
+import { AnimateIcon } from "@/components/animate-ui/icons/icon.tsx"
 
 const CreateTodo = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -32,9 +34,11 @@ const CreateTodo = () => {
                     onOpenChange={setIsDialogOpen}
                 >
                     <DialogTrigger asChild>
-                        <Button className={"fixed bottom-8 right-12"}>
-                            Add
-                        </Button>
+                        <AnimateIcon animateOnHover>
+                            <Button className={"fixed bottom-8 right-12"}>
+                                <PlusIcon />
+                            </Button>
+                        </AnimateIcon>
                     </DialogTrigger>
                     <DialogContent>
                         <DialogHeader>
@@ -59,12 +63,7 @@ const CreateTodo = () => {
                                                 className={"float-end"}
                                             >
                                                 Add
-                                                {loading.add && (
-                                                    <Loader
-                                                        size={15}
-                                                        className='animate-spin'
-                                                    />
-                                                )}
+                                                {loading.add && (<Loader animateOnView />)}
                                             </Button>
                                         </div>
                                     </fieldset>

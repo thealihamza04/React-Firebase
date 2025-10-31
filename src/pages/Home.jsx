@@ -3,6 +3,9 @@ import { cn } from "@/utils/cn.js";
 import Heading from "@/components/ui/Heading";
 import CreateTodo from "../components/todo/CreateTodo";
 import AllTodos from "../components/todo/AllTodos";
+import { Firebase } from "@/components/icons/firebase.jsx"
+import { ReactIcon } from "@/components/icons/react.jsx"
+
 
 const Home = () => {
     return (
@@ -17,9 +20,15 @@ const Home = () => {
         >
             <Heading
                 size='sm'
-                className='text-center'
+                className='text-center flex flex-row'
             >
-                Todos with React ⚡ Supabase
+                Todos with {" "}
+                React(
+                <ReactIcon className="h-8 w-4 text-black animate-[spin_15s_linear_infinite] " />
+                )
+                and {" "}
+                Firebase
+                <Firebase className="h-8 w-6 mx-2" />
             </Heading>
             <AllTodos className='mt-8' />
             <CreateTodo />
@@ -28,3 +37,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+

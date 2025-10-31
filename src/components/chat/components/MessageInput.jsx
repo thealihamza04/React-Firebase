@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import Loader from '@/components/ui/loader'
+// import Loader from '@/components/ui/loader'
 import { cn } from '@/utils/cn'
 import { ArrowUpRight } from "lucide-react"
+import { AnimateIcon } from "@/components/animate-ui/icons/icon.tsx"
+import { Send } from "@/components/animate-ui/icons/send.tsx"
+import { Loader } from "@/components/animate-ui/icons/loader.tsx"
 
 
 export default function MessageInput({ onSend, sending, className }) {
@@ -27,13 +30,15 @@ export default function MessageInput({ onSend, sending, className }) {
                     disabled={sending}
                     className="!border-none !bg-transparent w-full !shadow-none !outline-none"
                 />
-                <Button onClick={handleSend} disabled={sending} className="rounded-3xl h-10 w-10">
-                    {
-                        sending ?
-                            <Loader size={16} strokeWidth={3.5} /> :
-                            <ArrowUpRight size={16} strokeWidth={3.5} className='-rotate-45' />
-                    }
-                </Button>
+                <AnimateIcon animateOnHover>
+                    <Button onClick={handleSend} disabled={sending} className="rounded-3xl h-10 w-10">
+                        {
+                            sending ?
+                                <Loader animateOnView /> :
+                                <Send />
+                        }
+                    </Button>
+                </AnimateIcon>
             </div>
         </div>
     )

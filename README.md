@@ -1,102 +1,62 @@
-# React-Supabase
+# React + Firebase
 
-A modern **React + Supabase** CRUD scaffolded with **Vite**, styled using **Tailwind CSS**, and powered by **ShadCN UI**, **Lucide Icons**, and **Zustand** for state management.
-It comes with a clean, professional folder structure for scalability.
+Modern React CRUD and realtime chat using Firebase Firestore. Built with Vite, TailwindCSS, ShadCN UI, Lucide icons, and Zustand.
 
----
+## Getting Started
 
-## 📂 Project Structure
+1) Install deps
 
 ```
-├─ public/
-├─ src/
-│  ├─ api/
-│  ├─ assets/
-│  ├─ components/
-│  │  ├─ chat/
-│  │  ├─ header/
-│  │  ├─ todo/
-│  │  └─ ui/
-│  ├─ hooks/
-│  ├─ lib/
-│  ├─ pages/
-│  ├─ store/
-│  ├─ utils/
-│  ├─ App.jsx
-│  ├─ index.css
-│  └─ main.jsx
-├─ .gitignore
-├─ components.json
-├─ eslint.config.js
-├─ index.html
-├─ package-lock.json
-├─ package.json
-├─ README.md
-├─ tsconfig.app.json
-├─ tsconfig.json
-├─ tsconfig.node.json
-└─ vite.config.js
-```
-
----
-
-## ⚡ Features
-
--   🔥 Full CRUD functionality with Supabase backend
--   🎨 UI built with TailwindCSS + ShadCN components
--   🌓 Dark mode support via custom hook (`useDarkMode`)
--   🗂 Organized, scalable folder structure
--   ✔ Zustand for state management
--   💬 Realtime chat functionality with Supabase
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/thealihamza04/React-SB.git
-cd React-SB
 npm install
 ```
 
-### 2. Configure Supabase
+2) Firebase setup
 
-Create a `.env` file in the root:
+- Create a Firebase project and enable Firestore (Native mode)
+- Copy `.env.example` to `.env` and fill the Firebase keys
 
-```env
-VITE_SUPABASE_URL=your_supabase_url        # Settings → API → Project URL
-VITE_SUPABASE_ANON_KEY=your_anon_key      # Settings → API Keys → anon/public key
+```
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
 ```
 
-### 3. Run Development Server
+Dev Firestore Rules (for local testing only):
 
-```bash
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true; // Dev only; secure for prod
+    }
+  }
+}
+```
+
+3) Start
+
+```
 npm run dev
 ```
 
-Visit [http://localhost:5173](http://localhost:5173)
+Visit http://localhost:5173
 
----
+## Where Things Live
 
-## 💬 Realtime Chat
+- `src/utils/firebaseClient.js` – Firebase app + Firestore init
+- `src/hooks/useFirebase.js` – Realtime chat hook (onSnapshot)
+- `src/api/service/todo_api.js` – Todos CRUD via Firestore
+- `src/components/chat/` – Chat UI
+- `src/components/todo/` – Todos UI
 
-The application now includes a realtime chat feature, powered by Supabase's realtime capabilities. Users can send and receive messages in real time. The chat component is located in `src/components/chat/`.
+## Data Models
 
----
+- `messages`: { username, content, created_at: serverTimestamp() }
+- `todos`: { title, description, done, createdat: serverTimestamp() }
 
-## 🛠 Tech Stack
+Timestamps are converted to ISO strings for display.
 
--   **React 18 + Vite**
--   **Supabase** (Database + Backend)
--   **Zustand** (State Management)
--   **TailwindCSS**
--   **ShadCN UI Components**
--   **Lucide React Icons**
-
----
-
-## 🌐 Live Demo
-
-[React-SB Todos on Vercel](https://react-sb-todos.vercel.app/)

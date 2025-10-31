@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import {
-    EllipsisVertical,
-    Trash,
-    CircleCheck,
-    Loader,
-    PenLine,
-} from "lucide-react";
+import { EllipsisVertical, Trash, CircleCheck, PenLine } from "lucide-react";
+import { Loader } from "@/components/animate-ui/icons/loader.tsx";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -74,10 +69,7 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                             onSelect={(e) => e.preventDefault()}
                         >
                             {isUpdating ? (
-                                <Loader
-                                    className='text-[var(--color-muted-foreground)] animate-spin'
-                                    size={15}
-                                />
+                                <Loader animateOnView />
                             ) : (
                                 <CircleCheck size={15} />
                             )}
@@ -101,10 +93,7 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                             onSelect={(e) => e.preventDefault()}
                         >
                             {isDeleting ? (
-                                <Loader
-                                    className='text-destructive animate-spin'
-                                    size={15}
-                                />
+                                <Loader animateOnView />
                             ) : (
                                 <Trash className='text-destructive' />
                             )}

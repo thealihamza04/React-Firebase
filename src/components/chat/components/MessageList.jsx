@@ -16,23 +16,25 @@ export default function MessageList({ messages, className, username }) {
         }
     }, [messages])
 
-    // Sort messages by creation date
-    const sorted = [...messages].sort(
-        (a, b) => new Date(a.created_at) - new Date(b.created_at)
-    )
+    // Sort messages by creation date (handle null/undefined timestamps)
+    const sorted = [...messages].sort((a, b) => {
+        const at = a?.created_at ? new Date(a.created_at).getTime() : 0
+        const bt = b?.created_at ? new Date(b.created_at).getTime() : 0
+        return at - bt
+    })
 
     return (
         <div className="relative flex-1">
             <ScrollArea
                 ref={scrollRef}
-                // CHANGE: Use background variable for the main scroll area color
                 className={cn('flex-1 p-4 bg-background', className)}
             >
                 <div className="flex flex-col gap-3 w-full pb-10">
                     {sorted.map((msg, i) => {
-                        const currentDate = parseISO(msg.created_at)
-                        const previousDate = i > 0 ? parseISO(sorted[i - 1].created_at) : null
-                        const showDivider = !previousDate || !isSameDay(currentDate, previousDate)
+                        const currentDate = msg.created_at ? parseISO(msg.created_at) : null
+                        const prevCreated = i > 0 ? sorted[i - 1].created_at : null
+                        const previousDate = prevCreated ? parseISO(prevCreated) : null
+                        const showDivider = !!currentDate && (!previousDate || !isSameDay(currentDate, previousDate))
 
                         return (
                             <div key={msg.id}>
