@@ -23,12 +23,12 @@ const Home = () => {
                 className='text-center flex flex-row'
             >
                 Todos with {" "}
-                React(
-                <ReactIcon className="h-8 w-4 text-black animate-[spin_15s_linear_infinite] " />
-                )
+                React
+                {/* <ReactIcon className="h-8 w-4 text-black animate-[spin_15s_linear_infinite] " /> */}
+                {" "}
                 and {" "}
                 Firebase
-                <Firebase className="h-8 w-6 mx-2" />
+                {/* <Firebase className="h-8 w-6 mx-2" /> */}
             </Heading>
             <AllTodos className='mt-8' />
             <CreateTodo />

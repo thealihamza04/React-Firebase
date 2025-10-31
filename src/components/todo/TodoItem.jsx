@@ -7,6 +7,8 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import useTodoStore from "@/store/todo_store.js";
 import { formatDate } from "../../utils/formatDate";
 import TodoUpdateModal from "./TodoUpdateModal";
@@ -16,6 +18,7 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [isUpdating, setIsUpdating] = useState(false);
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
     const handleDelete = async () => {
         try {
@@ -89,7 +92,7 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                         {/* Delete (destructive) */}
                         <DropdownMenuItem
                             className='text-destructive focus:text-destructive'
-                            onClick={handleDelete}
+                            onClick={() => setIsConfirmOpen(true)}
                             onSelect={(e) => e.preventDefault()}
                         >
                             {isDeleting ? (
@@ -102,6 +105,38 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
+
+            {/* Confirm Delete Dialog */}
+            <Dialog open={isConfirmOpen} onOpenChange={setIsConfirmOpen}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Delete this todo?</DialogTitle>
+                        <DialogDescription>
+                            This action cannot be undone. This will permanently delete
+                            the todo "{title}".
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button
+                            variant='outline'
+                            onClick={() => setIsConfirmOpen(false)}
+                            disabled={isDeleting}
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            variant='destructive'
+                            onClick={async () => {
+                                await handleDelete();
+                                setIsConfirmOpen(false);
+                            }}
+                            disabled={isDeleting}
+                        >
+                            {isDeleting ? <Loader animateOnView /> : "Delete"}
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
 
             {/* Modal */}
             <TodoUpdateModal

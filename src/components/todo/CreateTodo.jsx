@@ -28,7 +28,7 @@ const CreateTodo = () => {
     };
     return (
         <div>
-            <div className={cn("flex flex-row", "gap-2")}>
+            <div className={cn("flex flex-row", "gap-2 ")}>
                 <Dialog
                     open={isDialogOpen}
                     onOpenChange={setIsDialogOpen}
@@ -40,7 +40,7 @@ const CreateTodo = () => {
                             </Button>
                         </AnimateIcon>
                     </DialogTrigger>
-                    <DialogContent>
+                    <DialogContent >
                         <DialogHeader>
                             <DialogTitle>Enter Your Todo.</DialogTitle>
                             <DialogDescription asChild>
