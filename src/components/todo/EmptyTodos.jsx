@@ -29,7 +29,7 @@ const EmptyTodos = ({ type }) => {
                         className='text-muted-foreground mb-4 animate-[pulse_6s_linear_infinite]'
                     />
                     <h2 className='text-lg font-semibold'>All done </h2>
-                    <p className='text-sm text-muted-foreground'>
+                    <p className='text-sm text-muted-foreground max-w-[80%]'>
                         You’ve completed all your pending tasks. Take a break!
                     </p>
                 </>

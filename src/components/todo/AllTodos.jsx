@@ -17,7 +17,7 @@ export default function AllTodos({ className }) {
     if (loading.fetch)
         return (
             <div className='h-[400px] flex items-center justify-center'>
-                <Shimmer>Loading Your Tasks</Shimmer>
+                <Shimmer>Loading Tasks</Shimmer>
             </div>
         );
     if (error) return <p>Error: {error.message}</p>;

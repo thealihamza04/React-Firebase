@@ -1,4 +1,5 @@
 import { Input } from "@/components/ui/input.tsx";
+import { Label } from "@/components/ui/label.tsx";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/animate-ui/components/buttons/button.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
@@ -46,18 +47,26 @@ const CreateTodo = () => {
                             <DialogDescription asChild>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <fieldset disabled={loading.add}>
-                                        <div className='space-y-2 pt-4'>
-                                            <Input
-                                                placeholder={"Enter Todo"}
-                                                {...register("title", {
-                                                    required: true,
-                                                })}
-                                            />
-                                            <Textarea
-                                                placeholder={"Enter details"}
-                                                className={"resize-none"}
-                                                {...register("description")}
-                                            />
+                                        <div className='space-y-4 pt-4'>
+                                            <div className='space-y-1'>
+                                                <Label htmlFor="create-title">Title</Label>
+                                                <Input
+                                                    id="create-title"
+                                                    placeholder={"Enter Todo"}
+                                                    {...register("title", {
+                                                        required: true,
+                                                    })}
+                                                />
+                                            </div>
+                                            <div className='space-y-1'>
+                                                <Label htmlFor="create-description">Description</Label>
+                                                <Textarea
+                                                    id="create-description"
+                                                    placeholder={"Enter details"}
+                                                    className={"resize-none"}
+                                                    {...register("description")}
+                                                />
+                                            </div>
                                             <Button
                                                 type={"submit"}
                                                 className={"float-end"}

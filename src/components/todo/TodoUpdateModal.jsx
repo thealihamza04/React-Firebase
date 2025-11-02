@@ -5,6 +5,7 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
 import { Button } from "@/components/animate-ui/components/buttons/button.tsx";
 import { useEffect } from "react";
@@ -51,15 +52,23 @@ export default function TodoUpdateModal({ open, onClose, todo }) {
                     onSubmit={handleSubmit(onSubmit)}
                     className='space-y-4 pt-4'
                 >
-                    <Input
-                        {...register("title", { required: true })}
-                        placeholder='Title'
-                    />
-                    <Textarea
-                        {...register("description")}
-                        placeholder='Description'
-                        className='resize-none'
-                    />
+                    <div className='space-y-1'>
+                        <Label htmlFor='update-title'>Title</Label>
+                        <Input
+                            id='update-title'
+                            {...register("title", { required: true })}
+                            placeholder='Title'
+                        />
+                    </div>
+                    <div className='space-y-1'>
+                        <Label htmlFor='update-description'>Description</Label>
+                        <Textarea
+                            id='update-description'
+                            {...register("description")}
+                            placeholder='Description'
+                            className='resize-none'
+                        />
+                    </div>
                     <Button
                         type='submit'
                         disabled={loading.update}

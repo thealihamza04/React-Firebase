@@ -25,7 +25,8 @@ const ConfirmDeleteDialog = ({
             Cancel
           </Button>
           <Button variant='destructive' onClick={onConfirm} disabled={isDeleting}>
-            {isDeleting ? <Loader animateOnView /> : "Delete"}
+            {isDeleting ? <Loader animateOnView /> : ""}
+            Delete
           </Button>
         </DialogFooter>
       </DialogContent>

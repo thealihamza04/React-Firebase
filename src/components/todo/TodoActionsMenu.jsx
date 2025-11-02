@@ -17,7 +17,7 @@ const TodoActionsMenu = ({
   onDeleteClick,
 }) => {
   return (
-    <div className='absolute right-7'>
+    <div className='absolute right-4  md:right-7'>
       <DropdownMenu>
         <DropdownMenuTrigger className='focus:outline-none focus:ring-0'>
           <EllipsisVertical className='text-[var(--color-muted-foreground)]' size={15} />
