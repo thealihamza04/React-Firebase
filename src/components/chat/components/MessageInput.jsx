@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/animate-ui/components/buttons/button.tsx'
 // import Loader from '@/components/ui/loader'
 import { cn } from '@/utils/cn'
 import { ArrowUpRight } from "lucide-react"

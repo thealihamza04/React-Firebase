@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ChatBox from './components/ChatBox'
 import UsernameModal from './components/UsernameModal'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/animate-ui/components/buttons/button.tsx'
 import { useFirebaseMessages } from '@/hooks/useFirebase'
 
 export default function Index() {

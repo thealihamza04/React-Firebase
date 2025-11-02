@@ -9,4 +9,3 @@ const TodoDescription = ({ description }) => {
 };
 
 export default TodoDescription;
-

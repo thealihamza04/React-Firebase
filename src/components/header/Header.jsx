@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListTodo, MessagesSquare } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/animate-ui/components/buttons/button.tsx"
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { AnimateIcon } from "@/components/ui/animate-ui/icons/icon.tsx"

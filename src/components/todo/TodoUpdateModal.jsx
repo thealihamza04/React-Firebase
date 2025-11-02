@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea.tsx";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/animate-ui/components/buttons/button.tsx";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useTodoStore from "@/store/todo_store";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/animate-ui/components/buttons/button.tsx";
 import { Loader } from "@/components/ui/animate-ui/icons/loader.tsx";
 
 const ConfirmDeleteDialog = ({
@@ -34,4 +34,3 @@ const ConfirmDeleteDialog = ({
 };
 
 export default ConfirmDeleteDialog;
-
