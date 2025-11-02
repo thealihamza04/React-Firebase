@@ -18,18 +18,17 @@ const Home = () => {
                 "lg:px-24 lg:py-18" // large screens
             )}
         >
-            <Heading
+
+            {/* <Heading
                 size='sm'
                 className='text-center flex flex-row'
             >
                 Todos with {" "}
                 React
-                {/* <ReactIcon className="h-8 w-4 text-black animate-[spin_15s_linear_infinite] " /> */}
                 {" "}
                 and {" "}
                 Firebase
-                {/* <Firebase className="h-8 w-6 mx-2" /> */}
-            </Heading>
+            </Heading> */}
             <AllTodos className='pt-8' />
             <CreateTodo />
         </div>

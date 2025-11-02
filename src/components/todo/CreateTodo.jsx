@@ -35,8 +35,8 @@ const CreateTodo = () => {
                 >
                     <DialogTrigger asChild>
                         <AnimateIcon animateOnHover>
-                            <Button className={"fixed bottom-8 right-4  md:right-12"}  >
-                                <PlusIcon className="size-5 md:size-5" />
+                            <Button className={"fixed bottom-8 right-4  md:right-12 "} size="sm" >
+                                Add
                             </Button>
                         </AnimateIcon>
                     </DialogTrigger>

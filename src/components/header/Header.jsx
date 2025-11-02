@@ -7,28 +7,23 @@ import { AnimateIcon } from "@/components/ui/animate-ui/icons/icon.tsx"
 import { MessageSquareText } from "@/components/ui/animate-ui/icons/message-square-text.tsx"
 import { List } from "@/components/ui/animate-ui/icons/list.tsx"
 
+
 const Header = () => {
 
     const location = useLocation();
 
     return (
-        <AnimateIcon animateOnHover >
-            <div className='fixed z-1  top-2 p-4 border bg-secondary   rounded-3xl  right-4 '>
-                <div className='flex flex-row gap-4'>
-                    {
-                        location.pathname === "/" ?
-                            <Link to={"/chat"}>
-                                <MessageSquareText />
-                            </Link>
-                            :
-                            <Link to={"/"}>
-                                <List />
-                            </Link>
-                    }
-                </div>
+        <AnimateIcon animateOnHover>
+            <div className="fixed top-4 right-4 md:right-6 z-10">
+                <Link to={location.pathname === "/" ? "/chat" : "/"}>
+                    <Button variant="outline" size="xl" className="p-3 cursor-pointer">
+                        {location.pathname === "/" ? <MessageSquareText /> : <List />}
+                    </Button>
+                </Link>
             </div>
         </AnimateIcon>
     );
+
 }
 
 export default Header;
