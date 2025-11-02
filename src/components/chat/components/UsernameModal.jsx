@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
-export default function UsernameModal({ onSetUsername }) {
+export default function UsernameModal({ onSetUsername, open, onOpenChange }) {
     const [name, setName] = useState('')
 
     function handleSubmit() {
@@ -12,7 +12,7 @@ export default function UsernameModal({ onSetUsername }) {
     }
 
     return (
-        <Dialog defaultOpen>
+        <Dialog open={open} onOpenChange={onOpenChange} defaultOpen={open === undefined}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Enter a unique username</DialogTitle>

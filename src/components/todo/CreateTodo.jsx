@@ -36,11 +36,11 @@ const CreateTodo = () => {
                     <DialogTrigger asChild>
                         <AnimateIcon animateOnHover>
                             <Button className={"fixed bottom-8 right-4  md:right-12"}  >
-                                <PlusIcon className="size-7 md:size-5" />
+                                <PlusIcon className="size-5 md:size-5" />
                             </Button>
                         </AnimateIcon>
                     </DialogTrigger>
-                    <DialogContent >
+                    <DialogContent className="bg-card text-card-foreground border border-accent ">
                         <DialogHeader>
                             <DialogTitle>Enter Your Todo.</DialogTitle>
                             <DialogDescription asChild>

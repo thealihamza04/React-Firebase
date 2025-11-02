@@ -30,7 +30,7 @@ export default function TodoUpdateModal({ open, onClose, todo }) {
                 description: todo.description || "",
             });
         }
-    }, [todo, reset]);
+    }, []);
 
     const onSubmit = async (data) => {
         await updateTodoItem(data);
@@ -42,7 +42,7 @@ export default function TodoUpdateModal({ open, onClose, todo }) {
             open={open}
             onOpenChange={onClose}
         >
-            <DialogContent>
+            <DialogContent className="bg-card text-card-foreground ">
                 <DialogHeader>
                     <DialogTitle>Edit Todo</DialogTitle>
                 </DialogHeader>

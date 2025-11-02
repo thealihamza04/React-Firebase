@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <AnimateIcon animateOnHover >
-            <div className='fixed z-999  top-2 p-4 border bg-[#f3f3f5]  dark:bg-[#1f1f1d] rounded-3xl  right-4  '>
+            <div className='fixed z-1  top-2 p-4 border bg-secondary   rounded-3xl  right-4 '>
                 <div className='flex flex-row gap-4'>
                     {
                         location.pathname === "/" ?

@@ -41,7 +41,7 @@ export default function AllTodos({ className }) {
                 <TabsPanel value='pending'>
                     <ul
                         className={cn(
-                            "min-h-[400px] flex flex-col space-y-4",
+                            " flex flex-col space-y-4",
                             className
                         )}
                     >
@@ -68,7 +68,7 @@ export default function AllTodos({ className }) {
                 <TabsPanel value='completed'>
                     <ul
                         className={cn(
-                            "min-h-[400px] flex flex-col space-y-4",
+                            " flex flex-col space-y-4",
                             className
                         )}
                     >

@@ -11,7 +11,7 @@ const Home = () => {
     return (
         <div
             className={cn(
-                "bg-[var(--color-background)] min-h-screen",
+                " bg-background min-h-screen",
                 "px-4 py-6", // default for small devices
                 "sm:px-8 sm:py-10", // small screens and up
                 "md:px-16 md:py-14", // medium screens
@@ -30,7 +30,7 @@ const Home = () => {
                 Firebase
                 {/* <Firebase className="h-8 w-6 mx-2" /> */}
             </Heading>
-            <AllTodos className='mt-8' />
+            <AllTodos className='pt-8' />
             <CreateTodo />
         </div>
     );
