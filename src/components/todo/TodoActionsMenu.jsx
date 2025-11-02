@@ -17,12 +17,11 @@ const TodoActionsMenu = ({
   onDeleteClick,
 }) => {
   return (
-    <div className='absolute right-4  md:right-7'>
-      <DropdownMenu>
-        <DropdownMenuTrigger className='focus:outline-none focus:ring-0'>
-          <EllipsisVertical className='text-[var(--color-muted-foreground)]' size={15} />
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align='end'>
+    <DropdownMenu>
+      <DropdownMenuTrigger className='focus:outline-none focus:ring-0 rounded-md p-1 hover:bg-accent/50 text-muted-foreground'>
+        <EllipsisVertical size={16} />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align='end'>
           <DropdownMenuItem onClick={onUpdateStatus} onSelect={(e) => e.preventDefault()}>
             {isUpdating ? <Loader animateOnView /> : <CircleCheck size={15} />}
             {isDone ? "Mark as incomplete" : "Mark as completed"}
@@ -41,11 +40,9 @@ const TodoActionsMenu = ({
             {isDeleting ? <Loader animateOnView /> : <Trash className='text-destructive' />}
             Delete
           </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
 export default TodoActionsMenu;
-

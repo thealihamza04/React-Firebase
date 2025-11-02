@@ -2,8 +2,12 @@ import React from "react";
 
 const TodoDescription = ({ description }) => {
   return (
-    <div className='ml-2 mt-2 p-2 w-[98%] px-4 rounded-[var(--radius)] bg-popover text-sidebar-foreground border text-sm'>
-      {description ? <p>{description}</p> : <p>No description found</p>}
+    <div className='mt-3 w-full rounded-md border border-muted bg-muted/20 p-3 text-sm leading-relaxed'>
+      {description ? (
+        <p className='text-muted-foreground'>{description}</p>
+      ) : (
+        <p className='italic text-muted-foreground'>No description provided</p>
+      )}
     </div>
   );
 };

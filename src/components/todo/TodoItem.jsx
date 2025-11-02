@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CircleCheck, Circle } from "lucide-react";
 import useTodoStore from "@/store/todo_store.js";
 import { formatDate } from "../../utils/formatDate";
 import TodoUpdateModal from "./TodoUpdateModal";
@@ -36,25 +37,42 @@ const TodoItem = ({ id, title, description, createdAt, isDone }) => {
     };
 
     return (
-        <div className='flex relative flex-col justify-start w-full items-start bg-secondary text-card-foreground border border-muted rounded-[var(--radius-lg)] p-4'>
-            <div className='gap-3 flex items-center'>
-                <label className='font-semibold text-lg'>{title}</label>
+        <div className='group relative w-full overflow-hidden rounded-xl border border-muted bg-card p-4 text-card-foreground shadow-xs hover:shadow-md transition-shadow'>
+            <div className={`absolute left-0 top-0 h-full w-1 ${isDone ? 'bg-primary' : 'bg-accent'}`} aria-hidden />
+
+            <div className='flex items-start justify-between gap-3'>
+                <div className='flex items-center gap-2'>
+                    {isDone ? (
+                        <CircleCheck className='text-primary' size={18} />
+                    ) : (
+                        <Circle className='text-muted-foreground' size={18} />
+                    )}
+                    <label className='font-semibold text-base md:text-lg'>{title}</label>
+                </div>
+                <div className='flex items-center gap-2'>
+                    <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${
+                        isDone
+                            ? 'bg-primary/10 text-primary border-primary/20'
+                            : 'bg-accent/40 text-accent-foreground border-accent/40'
+                    }`}>
+                        {isDone ? 'Completed' : 'Pending'}
+                    </span>
+                    <TodoActionsMenu
+                        isUpdating={isUpdating}
+                        isDeleting={isDeleting}
+                        isDone={isDone}
+                        onUpdateStatus={handleUpdateStatus}
+                        onOpenUpdateModal={() => setIsUpdateModalOpen(true)}
+                        onDeleteClick={() => setIsConfirmOpen(true)}
+                    />
+                </div>
             </div>
 
             <TodoDescription description={description} />
 
-            <div className='flex justify-end items-end w-[98%] pt-2 text-xs text-[var(--color-muted-foreground)]'>
-                <p className='text-right'>{formatDate(createdAt)}</p>
+            <div className='mt-3 flex items-center justify-end text-xs text-muted-foreground'>
+                <p className='text-right'>Created {formatDate(createdAt)}</p>
             </div>
-
-            <TodoActionsMenu
-                isUpdating={isUpdating}
-                isDeleting={isDeleting}
-                isDone={isDone}
-                onUpdateStatus={handleUpdateStatus}
-                onOpenUpdateModal={() => setIsUpdateModalOpen(true)}
-                onDeleteClick={() => setIsConfirmOpen(true)}
-            />
 
             <ConfirmDeleteDialog
                 open={isConfirmOpen}
