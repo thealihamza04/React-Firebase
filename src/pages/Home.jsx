@@ -5,6 +5,7 @@ import CreateTodo from "../components/todo/CreateTodo";
 import AllTodos from "../components/todo/AllTodos";
 import { Firebase } from "@/components/ui/icons/firebase.jsx"
 import { ReactIcon } from "@/components/ui/icons/react.jsx"
+import OnboardingTour from "@/components/tour/OnboardingTour";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
                 "lg:px-24 lg:py-18" // large screens
             )}
         >
+            <OnboardingTour />
 
             {/* <Heading
                 size='sm'
@@ -36,6 +38,5 @@ const Home = () => {
 };
 
 export default Home;
-
 
 

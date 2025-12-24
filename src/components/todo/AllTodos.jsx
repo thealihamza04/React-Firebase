@@ -26,10 +26,11 @@ export default function AllTodos({ className }) {
     const completedTodos = todoItems.filter((todo) => todo.done);
 
     return (
-        <Tabs
-            defaultValue='pending'
-            className={cn("w-full", className)}
-        >
+        <div data-tour="todo-tabs">
+            <Tabs
+                defaultValue='pending'
+                className={cn("w-full", className)}
+            >
             <TabsList>
                 <TabsTab value='pending'>Pending</TabsTab>
                 <TabsTab value='completed'>Completed</TabsTab>
@@ -90,7 +91,7 @@ export default function AllTodos({ className }) {
                 </TabsPanel >
 
             </TabsPanels>
-        </Tabs>
+            </Tabs>
+        </div>
     );
 }
-
