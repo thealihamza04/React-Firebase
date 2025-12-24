@@ -36,7 +36,11 @@ const CreateTodo = () => {
                 >
                     <DialogTrigger asChild>
                         <AnimateIcon animateOnHover>
-                            <Button className={"fixed bottom-8 right-4  md:right-12 "} size="sm" >
+                            <Button
+                                className={"fixed bottom-8 right-4  md:right-12 "}
+                                size="sm"
+                                data-tour="add-todo"
+                            >
                                 Add
                             </Button>
                         </AnimateIcon>
@@ -86,4 +90,3 @@ const CreateTodo = () => {
     );
 };
 export default CreateTodo;
-

@@ -17,7 +17,12 @@ const Header = () => {
         <AnimateIcon animateOnHover>
             <div className="fixed top-4 right-4 md:right-6 z-10">
                 <Link to={location.pathname === "/" ? "/chat" : "/"}>
-                    <Button variant="outline" size="xl" className="p-3 cursor-pointer">
+                    <Button
+                        variant="outline"
+                        size="xl"
+                        className="p-3 cursor-pointer"
+                        data-tour="nav-toggle"
+                    >
                         {location.pathname === "/" ? <MessageSquareText /> : <List animation="path-loop" />}
                     </Button>
                 </Link>
@@ -28,4 +33,3 @@ const Header = () => {
 }
 
 export default Header;
-
