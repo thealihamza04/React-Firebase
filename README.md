@@ -2,6 +2,14 @@
 
 Modern React CRUD and realtime chat using Firebase Firestore. Built with Vite, TailwindCSS, ShadCN UI, Lucide icons, and Zustand.
 
+
+
+
+https://github.com/user-attachments/assets/2523b666-e39f-4a33-9f60-73240d58dc16
+
+
+
+
 ## Getting Started
 
 1) Install deps
